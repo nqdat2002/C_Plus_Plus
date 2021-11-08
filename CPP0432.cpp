@@ -12,7 +12,7 @@ int main() {
 		vector< string > str(n);
 		for (int i = 0 ; i < n ; i ++) cin >> str[i];
 		sort(str.begin(), str.end(), cmp);
-		for (auto x) cout << x;
+		for (auto x : str) cout << x;
 		cout << endl;
 	}
 	return 0;
