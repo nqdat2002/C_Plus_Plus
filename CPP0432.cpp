@@ -1,23 +1,18 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-bool Sum_string(string a, string b) {
+bool cmp(string a, string b) {
 	string ab = a.append(b);
 	string ba = b.append(a);
-	if (ab > ba)
-		return true;
-	return false;
+	return ((ab > ba) ? true : false);
 }
 int main() {
-	int t, n;
-	cin >> t;
+	int t; cin >> t;
 	while (t--) {
-		cin >> n;
+		int n; cin >> n;
 		vector< string > str(n);
-		for (int i = 0 ; i < n ; i ++)
-			cin >> str[i];
-		sort(str.begin(), str.end(), Sum_string);
-		for (int i = 0 ; i < n ; i ++)
-			cout << str[i];
+		for (int i = 0 ; i < n ; i ++) cin >> str[i];
+		sort(str.begin(), str.end(), cmp);
+		for (auto x) cout << x;
 		cout << endl;
 	}
 	return 0;
