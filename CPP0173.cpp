@@ -1,24 +1,21 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+typedef long long ll;
 int main() {
-	int t; 
-	cin >> t;
+	int t; cin >> t;
 	while (t--) {
-		long long int X, Y, Z, N;
+		ll X, Y, Z, N;
 		cin >> X >> Y >> Z >> N;
-		long long int tmp1 = X * Y /__gcd(X, Y);
+		ll tmp1 = X * Y /__gcd(X, Y);
 		tmp1 = tmp1 * Z/__gcd(tmp1, Z);
-		long long int a = pow(10, N - 1);
-		long long int b = pow(10, N);
+		ll a = pow(10, N - 1);
+		ll b = pow(10, N);
 		if (tmp1 >= b)
 			cout << -1 ;
 		else {
-			long long int ans = a % tmp1;
-			long long int res = a + tmp1 - ans;
-			if (ans == 0)
-				cout << a ;
-			else
-				cout << res ;
+			ll ans = a % tmp1;
+			ll res = a + tmp1 - ans;
+			cout << ((ans == 0) ? a : res);
 		}
 		cout << endl;
 	}
