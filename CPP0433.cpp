@@ -1,32 +1,29 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-struct dta{
-	int val, count;
-};
-bool swapp(dta a, dta b){
-	if(a.count > b.count) 
+#define f first
+#define s second
+bool Comparation(pair<int, int> a, pair<int, int> b){
+	if(a.s > b.s) 
 		return true;
-	if(a.count == b.count && a.val < b.val) 
+	if(a.s == b.s && a.f < b.f) 
 		return true;
 	return false;
 }
 int main(){
-	int t;
-	cin >> t;
+	int t; cin >> t;
 	while(t--){
 		int n; cin >> n;
-		int a[100005] = {0};
-		dta arr[n];
+		vector<pair<int, int> > a(n);
+		int cnt[10005] = {0};
 		for(int i = 0; i < n; i++){
-			cin >> arr[i].val;
-			a[arr[i].val] ++;
+			cin >> a[i].f;
+			cnt[a[i].f] ++;
 		}
+		for(int i = 0; i < n; i ++)
+			a[i].s = cnt[a[i].f];
+		sort(a.begin(), a.end(), Comparation);
 		for(int i = 0; i < n; i++){
-			arr[i].count = a[arr[i].val];
-		}
-		sort(arr, arr+n, swapp);
-		for(int i = 0; i < n; i++){
-			cout << arr[i].val << " ";
+			cout << a[i].f << " ";
 		}
 		cout << endl;
 	}
