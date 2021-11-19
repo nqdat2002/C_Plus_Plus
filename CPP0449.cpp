@@ -1,26 +1,35 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int main() {
-	int t, n, k;
-	cin >> t;
-	while (t --) { 
-		cin >> n >> k;
-		int arr[100005];
-		for (int i = 0 ; i < n ; i ++) 
-			cin >> arr[i];
-		sort(arr, arr + n);
-		int cnt = 0;
-		for (int i = n - 1 ; i >= 0 ; i --) {	
-			int tmp = lower_bound(arr, arr + n, arr[i] - k) - arr;
-			if (arr[tmp] + k == arr[i]) {
-				cnt = 1;
+bool Binary_Search(vector<int> &a, int n, int k) {
+	int l = 0, r = n - 1;
+	while (l <= r) {
+		int m = (l + r) / 2;
+		if (a[m] == k) 
+			return true;
+		else if (k > a[m]) 
+			l = m + 1;
+		else 
+			r = m - 1;
+	}
+	return false;
+}
+int main(){
+	int t; cin >> t;
+	while(t--){
+		int n, x; cin >> n >> x;
+		vector<int> a;
+		for(int i = 0; i < n; i ++){
+			int c; cin >> c;
+			a.push_back(c);
+		}
+		bool mark = false;
+		for(int i = 0; i < n; i ++){
+			if(Binary_Search(a, n, x + a[i])){
+				mark = true;
 				break;
 			}
 		}
-		if (cnt == 1)
-			cout << 1 << endl;
-		else 
-			cout << -1 << endl;
+		cout << ((mark) ? 1 : -1) << endl;
 	}
 	return 0;
 }
