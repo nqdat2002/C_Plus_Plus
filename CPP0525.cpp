@@ -1,41 +1,38 @@
 #include<bits/stdc++.h>
 using namespace std;
-bool cmp(sv A, sv B) {
-	if (A.name < B.name)return true;
-	return false;
-}
-struct Student{
+struct SinhVien{
 	double Point1, Point2, Point3;
 	string student_code, name, student_class;
 };
-bool Comparation(Student A, Student B) {
+bool Comparation(SinhVien A, SinhVien B) {
 	if (A.name < B.name) 
 		return true;
 	return false;
 }
-void nhap(Student& x) {
+void nhap(SinhVien& x) {
+    cin.ignore();
 	getline(cin, x.student_code);
 	getline(cin, x.name);
 	getline(cin, x.student_class);
 	cin >> x.Point1 >> x.Point2 >> x.Point3;
-	getchar();
 }
-void xuat(Student x) {
-	cout << x.student_code << " " << x.name << " " << x.student_class << " ";
-	cout << fixed << setprecision(1) << x.Point1 << " " << x.Point2 << " " << x.Point3;
-}
-int main() {
-	Student Str[100];
-	int n; 
-	cin >> n;
-	cin.ignore();
-	for (int i = 0; i < n; i++)
-		nhap(Str[i]);
-	sort(Str, Str + n, Comparation);
-	for (int i = 0; i < n; i++) {
-		cout << i + 1 << " ";
-		xuat(Str[i]);
-		cout << endl;
+void in_ds(SinhVien ds[], int N) {
+	for(int i = 0; i < N; i ++){
+		cout << i + 1 << " " << ds[i].student_code << " " << ds[i].name << " " << ds[i].student_class << " ";
+		cout << fixed << setprecision(1) << ds[i].Point1 << " " << ds[i].Point2 << " " << ds[i].Point3 << endl;
 	}
-	return 0;
+}
+void sap_xep(SinhVien ds[], int N){
+    sort(ds, ds +  N, Comparation);
+}
+int main(){
+    int n;
+    cin >> n;
+    struct SinhVien *ds = new SinhVien[n];
+    for(int i = 0; i < n; i++) {
+    	nhap(ds[i]);
+	}
+	sap_xep(ds, n);
+    in_ds(ds,n);
+    return 0;
 }
