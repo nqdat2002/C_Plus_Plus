@@ -1,11 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main() {
-	int t;
-	cin >> t;
-	getchar();
+	int t; cin >> t;
+	cin.ignore();
 	while(t--){
-	    string str,res;
+	    string str, res = "";
 	    getline(cin, str);
 	    int sum = 0;
 	    int n = str.size();
@@ -15,18 +14,8 @@ int main() {
 	        }
 	        else  res += str[i];
 	    }
-	    for(int i = 0 ; i < res.size() - 1 ; i ++){
-	    	for(int j = i + 1 ; j < res.size() ; j ++){
-	    		if( res[i] > res[j]){
-	    			char x = res[i];
-	    			res[i] = res[j];
-	    			res[j] = x;
-				}
-			}
-		}
-	    cout << res << sum;
-	    cout << endl;
+	    sort(res.begin(), res.end());
+	    cout << res << sum << endl;
 	}
     return 0;
 }
-
