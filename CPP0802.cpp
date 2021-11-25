@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
-#define present(t, x) (t.find(x) != t.end())
 using namespace std;
-int C(string &x){
+typedef long long ll;
+int to_number(string &x){
 	int res = 0, n = x.length();
 	for(int i = n - 1; i >= 0; --i){
         res += (int)(x[i] - '0') * pow(10, n - i - 1);
@@ -9,36 +9,31 @@ int C(string &x){
     return res;
 }
 bool check(string &s){
-	int n = s.length();
-	int cnt = 0;
-	for(int i = 0; i < n; i++){
+	int n = s.length(), cnt = 0;
+	for(int i = 0; i < n; i++)
 		if(s[i] >= '0' && s[i] <= '9')
 			cnt ++;
-	}
-	if(cnt == n && n <= 9) 
-		return true;
-	else 
-		return false;
+	return (cnt == n && n <= 9) ? true : false; 
 }
-long convert(string str){
+ll convert(string str){
 	stringstream ss(str);
 	string tmp;
-	long res = 0;
+	ll res = 0;
 	while(ss >> tmp){
 		if(check(tmp))
-			res = res + (C(tmp));
+			res += (to_number(tmp));
 	}
 	return res;
 }
 int main(){
-	ifstream input("DATA.txt");
+	ifstream input("DATA.in");
     string line;
-    string str = "";
+    ll ans = 0;
     while(!input.eof()){
         getline(input, line);
-        str = str + line;
-        str = str + " ";
+        ans += convert(line);
+        line.clear();
     }
-	cout << convert(str) << endl;
+    cout << ans << endl;
 	return 0;
 }
