@@ -19,37 +19,26 @@ string AddBig_number(string a, string b) {
 		res.erase(res.begin());
 	return res;
 }
-string change_five_to_six(string a) {
+string change(string &a, char &x, char &y) {
 	int len = a.size();
 	for(int i = 0 ; i < len ; i++){
-		if(a[i] == '5') 
-			a[i] = '6';
+		if(a[i] == y) 
+		a[i] = x;
 	}
 	return a;
 }
-string change_six_to_five(string b) {
-	int len = b.size();
-	for(int i = 0 ; i < len ; i++){
-		if(b[i] == '6') 
-			b[i] = '5';
-	}
-	return b;
-}
 int main() { 
-	int t;
-	cin >> t; 
+	int t; cin >> t; 
 	cin.ignore();
 	while(t--) { 
-		string a,b;
+		string a, b;
+		char x = '5', y = '6';
 		cin >> a >> b;
-		string c = change_six_to_five(a);
-		string d = change_six_to_five(b);
-		string m = change_five_to_six(a);
-		string n = change_five_to_six(b);
-		cout << AddBig_number(c, d);
-		cout << " ";
-		cout << AddBig_number(n, m);
-		cout << endl;	
+		string c = change(a, x, y);
+		string d = change(b, x, y);
+		string m = change(a, y, x);
+		string n = change(b, y, x);
+		cout << AddBig_number(c, d) << " " << AddBig_number(n, m) << endl;
 	} 
 	return 0;
 }
