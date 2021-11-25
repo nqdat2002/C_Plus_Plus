@@ -28,17 +28,13 @@ string change(string &a, char &x, char &y) {
 	return a;
 }
 int main() { 
-	int t; cin >> t; 
+	int t;
+	cin >> t; 
 	cin.ignore();
 	while(t--) { 
-		string a, b;
-		char x = '5', y = '6';
+		string a, b; char x = '5', y = '6';
 		cin >> a >> b;
-		string c = change(a, x, y);
-		string d = change(b, x, y);
-		string m = change(a, y, x);
-		string n = change(b, y, x);
-		cout << AddBig_number(c, d) << " " << AddBig_number(n, m) << endl;
+		cout << AddBig_number(change(a, x, y), change(b, x, y)) << " " << AddBig_number(change(a, y, x), change(b, y, x)) << endl;
 	} 
 	return 0;
 }
