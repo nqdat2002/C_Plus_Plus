@@ -1,23 +1,13 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 int main(){
-    string NY[10001];
-    int n, cnt = 0;
-    cin >> n;
+    int t; cin >> t;
     cin.ignore();
-    for(int i  =0; i < n; i++){
-        getline(cin, NY[i]);
-        bool temp = false;
-        for(int j = 0; j < i ; j++){
-            if(NY[i] == NY[j]){
-                temp =true;
-                break;
-            }
-        }
-         cnt += !temp;
+    set<string> st;
+    for(int i  =0; i < t; i++){
+        string s; getline(cin, s);
+        st.insert(s);
     }
-    cout << cnt;
+    cout << st.size();
     return 0;
 }
-
