@@ -1,28 +1,28 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main() {
-	int t; 
-	cin >> t;
+	int t; cin >> t;
 	while (t--) {
-		int n; 
-		cin >> n;
-		vector<int> arr(n);
-		for (int i = 0 ; i < n ; i ++)
-			cin >> arr[i];
+		int n; cin >> n;
+		vector<int> a;
+		for (int i = 0 ; i < n ; i ++){
+			int x; cin >> x;
+			a.push_back(x);
+		}
 		for (int i = 0 ; i < n - 1 ; i ++) {
-			if (arr[i] != 0 && arr[i + 1] == arr[i]) {
-				arr[i] = arr[i] * 2; 
-				arr[i + 1] = 0;
+			if (a[i] != 0 && a[i + 1] == a[i]) {
+				a[i] *= 2; 
+				a[i + 1] = 0;
 			}
 		}
-		int tmp = 0;
+		int idx = 0;
 		for (int i = 0 ; i < n ; i ++) {
-			if (arr[i] != 0) {
-				cout << arr[i] << " "; 
-				tmp ++;
+			if (a[i] != 0) {
+				cout << a[i] << " "; 
+				idx++;
 			}
 		}
-		for (int i = tmp ; i < n ; i ++) 
+		for (int i = id ; i < n ; i ++) 
 			cout << "0" << " ";
 		cout << endl;
 	}
