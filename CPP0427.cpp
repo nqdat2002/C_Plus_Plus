@@ -22,7 +22,7 @@ int main() {
 				idx++;
 			}
 		}
-		for (int i = id ; i < n ; i ++) 
+		for (int i = idx ; i < n ; i ++) 
 			cout << "0" << " ";
 		cout << endl;
 	}
