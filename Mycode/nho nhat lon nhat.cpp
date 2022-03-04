@@ -11,8 +11,8 @@ int main(){
 		cout << 0 << " " << 0;
 		return 0;
 	}
-	long long a[m + 1], b[m + 1];
-	for(long long i = 0 ; i < m ; i ++){
+	int a[m + 1], b[m + 1];
+	for(int i = 0 ; i < m ; i ++){
 		if(s >= 10){
 			a[i] = 9;
 			s -= 9;
@@ -22,22 +22,17 @@ int main(){
 			s = 0;
 		}
 	}
-	for(long long i = 0 ; i < m ; i ++){
+	for(int i = 0 ; i < m ; i ++){
 			b[i] = a[i];
 	}
 	if(b[m - 1] == 0){
 		b[m - 1] = 1;
-		for(long long i = m - 2; i >= 0; i --){
-			if(b[i] != 0){
-				b[i] -= 1;
-				break;
-			}
-		}
+		--b[m-2];
 	}
-	for(long long i = m - 1 ; i >= 0 ; i --)	
+	for(int i = m - 1 ; i >= 0 ; i --)	
 		cout << b[i];
 	cout << " ";
-	for(long long i = 0 ; i < m ; i ++)	
+	for(int i = 0 ; i < m ; i ++)	
 		cout << a[i];
 		
 	return 0;
