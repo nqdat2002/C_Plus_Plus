@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-int Solve(vector<long long int> arr, int n, vector<long long int> a){
+int Solve(vector<long long> arr, int n, vector<long long> a){
 	int res = 0;
     for (int i = 0; i < n; i++) {
         int low = i + 1, high = n - 1, ans = i;
